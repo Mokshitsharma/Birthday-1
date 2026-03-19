@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-pink-50 text-slate-800 overflow-x-hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.floating-heart {
+  position: fixed;
+  bottom: -50px;
+  pointer-events: none;
+  animation: float 10s linear infinite;
+  z-index: 0;
+}
+
+.glass-card {
+  @apply bg-white/70 backdrop-blur-md border border-white/30 shadow-xl rounded-3xl;
+}
+
+.btn-romantic {
+  @apply px-8 py-3 bg-pink-500 hover:bg-pink-600 text-white rounded-full font-semibold transition-all transform hover:scale-105 active:scale-95 shadow-lg;
+}
+
+.btn-outline-romantic {
+  @apply px-8 py-3 border-2 border-pink-500 text-pink-500 hover:bg-pink-50 rounded-full font-semibold transition-all transform hover:scale-105 active:scale-95;
+}
+
+.wheel-container {
+  @apply relative w-64 h-64 mx-auto rounded-full border-8 border-pink-200 shadow-2xl overflow-hidden;
+}
+
+.wheel-segment {
+  @apply absolute top-0 left-0 w-full h-full;
+  clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-pink-50;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-pink-200 rounded-full hover:bg-pink-300 transition-colors;
+}
